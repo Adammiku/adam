@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medibuddy - Your Health Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #2A9D8F;
+            --secondary-blue: #264653;
+            --accent-orange: #E76F51;
+            --light-bg: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--secondary-blue);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                        url('https://images.unsplash.com/photo-1587854692152-4b4cdaa0a8b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            justify-content: center
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        /* Medication Schedule */
+        .schedule {
+            padding: 100px 5%;
+            background-color: var(--light-bg);
+        }
+
+        .schedule-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .medication-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .medication-time {
+            font-weight: 600;
+            color: var(--primary-blue);
+            min-width: 120px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            padding: 15px 40px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            color: var(--secondary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Medi<span>buddy</span></div>
+        <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Friendly Medication Companion</h1>
+            <p>Never miss a dose again with smart reminders, health tracking, and 24/7 support from your Medibuddy.</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        .how-it-works {
+            display: flex;
+            justify-content: space-around;
+        }
+        .step {
+            text-align: center;
+            width: 30%;
+        }
+        .dashboard-preview {
+            text-align: center;
+        }
+        .subscription-plans {
+            display: flex;
+            justify-content: space-around;
+        }
+        .plan {
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            /* Removed border */
+            /* border: 1px solid #ddd; */
+            /* border-radius: 5px; */
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<section id="how-it-works">
+    <h2>How It Works</h2>
+    <br>
+    <div class="how-it-works">
+        <div class="step">
+            <h3>Step 1: Sign Up</h3>
+            <p>Create an account in just a few minutes.</p>
+        </div>
+        <div class="step">
+            <h3>Step 2: Set Reminders</h3>
+            <p>Schedule reminders for medications and appointments.</p>
+        </div>
+        <div class="step">
+            <h3>Step 3: Track Your Health</h3>
+            <p>Monitor your health metrics and progress over time.</p>
+        </div>
+    </div>
+</section>
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bell feature-icon"></i>
+                <h3>Smart Reminders</h3>
+                <p>Customizable alerts for medications, appointments, and health checks</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heartbeat feature-icon"></i>
+                <h3>Health Tracking</h3>
+                <p>Monitor vital signs, symptoms, and progress over time</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-comments feature-icon"></i>
+                <h3>24/7 Support</h3>
+                <p>Instant access to healthcare professionals and peer support</p>
+            </div>
+        </div>
+    </section>
+    <section id="subscription-plans">
+        <h2>Subscription Plans</h2>
+        <div class="subscription-plans">
+            <div class="plan">
+                <h3>Free Plan</h3>
+                <p>Basic features included.</p>
+                <p>Track medications and set reminders.</p>
+            </div>
+            <div class="plan">
+                <h3>Premium Plan</h3>
+                <p>All features included.</p>
+                <p>Advanced tracking, personalized insights, and more.</p>
+            </div>
+        </div>
+    </section>
+    <section class="schedule">
+        <!-- Replace the schedule section with this -->
+<section style="margin-top: -100px;" class="coaches-section">
+    <div class="section-container">
+        <h2 class="section-title">Client Success Stories</h2>
+        <p class="section-subtitle">Hear from our users about their health journeys</p>
+        
+        <div class="coaches-grid">
+            <!-- Coach Card 1 -->
+            <!-- Updated Coach Card 1 -->
+
+            <!-- Coach Card 2 -->
+            <div class="coach-card">
+                <div class="coach-header">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                         alt="Coach Michael" class="coach-photo">
+                    <div class="coach-info">
+                        <h4>Michael Chen</h4>
+                        <p>Senior Health Coach</p>
+                    </div>
+                </div>
+                <div class="coach-feedback">
+                    <p>"The progress tracking features help my clients stay accountable. It's become an essential tool in our practice."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coach Card 3 -->
+            <div class="coach-card">
+                <div class="coach-header">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                         alt="Coach Maria" class="coach-photo">
+                    <div class="coach-info">
+                        <h4>Maria Gonzalez</h4>
+                        <p>Mental Health Specialist</p>
+                    </div>
+                </div>
+                <div class="coach-feedback">
+                    <p>"The holistic approach to health management makes Medibuddy stand out. My patients love the stress tracking features!"</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .coaches-section {
+        padding: 100px 5%;
+        background-color: white;
+    }
+
+    .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 60px;
+        font-size: 1.1rem;
+    }
+
+    .coaches-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .coach-card {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        padding: 25px;
+        transition: transform 0.3s ease;
+    }
+
+    .coach-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .coach-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .coach-photo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .coach-info h4 {
+        color: var(--secondary-blue);
+        margin-bottom: 5px;
+    }
+
+    .coach-info p {
+        color: var(--primary-blue);
+        font-size: 0.9rem;
+    }
+
+    .coach-feedback p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .rating {
+        color: var(--accent-orange);
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .coaches-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+    </section>
+<!-- Add this right before the closing </body> tag -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Services</h4>
+            <ul class="footer-links">
+                <li><a href="#">Medication Tracking</a></li>
+                <li><a href="#">Health Reports</a></li>
+                <li><a href="#">Smart Reminders</a></li>
+                <li><a href="#">24/7 Support</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health Street, Wellness City</p>
+                <p><i class="fas fa-phone"></i> 0781186849</p>
+                <p><i class="fas fa-envelope"></i> helpmedibuddy@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="cta-button">Subscribe</button>
+            </form>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2023 Medibuddy. All rights reserved.</p>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">HIPAA Compliance</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background-color: var(--secondary-blue);
+        color: white;
+        padding: 50px 5% 20px;
+        margin-top: 50px;
+        margin-left: -100px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+
+    .footer-section h4 {
+        color: var(--primary-blue);
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+    }
+
+    .footer-links li {
+        margin-bottom: 15px;
+    }
+
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-orange);
+    }
+
+    .contact-info p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 20px;
+        font-size: 1.5rem;
+    }
+
+    .social-icons a {
+        color: #ddd;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-blue);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .legal-links {
+        margin-top: 15px;
+    }
+
+    .legal-links a {
+        color: #ddd;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .contact-info p {
+            justify-content: center;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+</style>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        mobileMenu.addEventListener('click', () => {
+            // Add mobile menu functionality
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Notification Animation
+        const notificationBell = document.querySelector('.fa-bell');
+        setInterval(() => {
+            notificationBell.style.transform = 'rotate(-20deg)';
+            setTimeout(() => {
+                notificationBell.style.transform = 'rotate(20deg)';
+            }, 300);
+            setTimeout(() => {
+                notificationBell.style.transform = 'rotate(0deg)';
+            }, 600);
+        }, 5000);
+    </script>
+</body>
+</html>
